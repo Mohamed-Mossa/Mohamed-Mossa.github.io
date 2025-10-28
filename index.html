@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Mousa - Java Backend Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        section {
+            background: white;
+            margin: 40px auto;
+            padding: 60px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #667eea;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 5px 0;
+        }
+        
+        .skill-category li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .project-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .project-card .tech-stack {
+            background: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        
+        .project-card ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .project-card li {
+            margin: 8px 0;
+        }
+        
+        .project-links {
+            margin-top: 20px;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-box:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .service-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .service-box:hover h3 {
+            color: white;
+        }
+        
+        .contact-info {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            transition: all 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #764ba2;
+            transform: translateX(10px);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .projects-grid,
+            .skills-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mohamed Mousa</h1>
+            <p>Java Backend Engineer | Spring Boot Specialist</p>
+            <p>Building Secure, Scalable Enterprise Solutions</p>
+            <a href="#projects" class="btn">View My Work</a>
+            <a href="#contact" class="btn">Contact Me</a>
+            <a href="https://github.com/Mohamed-Mossa" class="btn" target="_blank">GitHub</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>Hi! I'm Mohamed Mousa, a passionate Software Engineer from Alexandria, Egypt, specializing in building secure, production-ready backend systems with Spring Boot.</p>
+                
+                <p style="margin-top: 20px;">I have hands-on experience developing enterprise solutions at <strong>Al Ezz Dhekelia Steel Co.</strong>, where I work with the Finance Development team building financial software systems that serve hundreds of users daily.</p>
+                
+                <p style="margin-top: 20px;"><strong>What I bring to the table:</strong></p>
+                <ul style="margin-top: 15px; padding-left: 40px;">
+                    <li>Production-ready Spring Boot applications with clean, maintainable code</li>
+                    <li>Experience integrating with enterprise systems (Oracle ERP, IBM AS400)</li>
+                    <li>Strong focus on security, scalability, and performance</li>
+                    <li>Automated solutions that save time and reduce errors</li>
+                </ul>
+                
+                <p style="margin-top: 20px;">I help businesses automate processes, integrate legacy systems, and build RESTful APIs that scale. Whether you need a secure authentication system, database integration, or a complete backend solution, I deliver reliable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Backend Development</h3>
+                    <ul>
+                        <li>Java 17</li>
+                        <li>Spring Boot 3.x</li>
+                        <li>Spring Security</li>
+                        <li>Spring Data JPA</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Authentication & Security</h3>
+                    <ul>
+                        <li>JWT & OAuth2</li>
+                        <li>OTP Systems</li>
+                        <li>Role-Based Access Control</li>
+                        <li>BCrypt Encryption</li>
+                        <li>Spring Security</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <ul>
+                        <li>Oracle Database</li>
+                        <li>MySQL</li>
+                        <li>IBM AS400 (DB2)</li>
+                        <li>H2 Database</li>
+                        <li>JDBC</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Integration & Automation</h3>
+                    <ul>
+                        <li>Web Scraping (Selenium)</li>
+                        <li>Email Services (JavaMail)</li>
+                        <li>Scheduled Tasks</li>
+                        <li>ERP Integration</li>
+                        <li>API Documentation</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>React (Material-UI)</li>
+                        <li>Sencha Ext.js</li>
+                        <li>HTML/CSS</li>
+                        <li>JavaScript</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Tools & Others</h3>
+                    <ul>
+                        <li>Maven</li>
+                        <li>Git & GitHub</li>
+                        <li>Docker</li>
+                        <li>Postman</li>
+                        <li>Jasper Reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🔐 ERP Authentication System</h3>
+                    <p class="tech-stack">Spring Boot • Spring Security • JWT • Caffeine Cache</p>
+                    <p><strong>Problem:</strong> Companies need secure user authentication with email verification for their enterprise applications.</p>
+                    <p style="margin-top: 10px;"><strong>Solution:</strong> Built a production-ready authentication system with OTP-based email verification and JWT tokens.</p>
+                    <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Secure OTP-based email verification (6-digit, 5-min expiry)</li>
+                        <li>JWT authentication with 24-hour sessions</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        <li>Async email sending with thread pooling</li>
+                        <li>High-performance in-memory caching</li>
+                        <li>Comprehensive exception handling & validation</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">View Code</a>
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">Documentation</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>💱 Enterprise Currency Exchange System</h3>
+                    <p class="tech-stack">Spring Boot • Selenium • Oracle • AS400 • Scheduling</p>
+                    <p><strong>Problem:</strong> Finance teams manually entered currency rates daily from the National Bank of Egypt website, causing delays and errors.</p>
+                    <p style="margin-top: 10px;"><strong>Solution:</strong> Automated web scraping system that fetches rates and pushes to Oracle ERP and IBM AS400.</p>
+                    <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Automated scraping every 10 minutes (4-9 PM daily)</li>
+                        <li>Dual database integration (Oracle GL + AS400)</li>
+                        <li>Smart backfill for missing dates (up to 365 days)</li>
+                        <li>Email notifications to finance team</li>
+                        <li>Handles 18 currencies with data validation</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Impact:</strong> Eliminated manual data entry, saved 2 hours daily for finance team</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">View Code</a>
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">Documentation</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>💼 Payroll-Oracle Integration Middleware</h3>
+                    <p class="tech-stack">Spring Boot • Oracle • REST API • Data Transformation</p>
+                    <p><strong>Problem:</strong> Manual transfer of payroll data to Oracle GL system was time-consuming and error-prone.</p>
+                    <p style="margin-top: 10px;"><strong>Solution:</strong> Built integration middleware that automatically fetches payroll data and creates GL journals in Oracle.</p>
+                    <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Automated data extraction from payroll system</li>
+                        <li>GL journal formulation with accounting rules</li>
+                        <li>Data validation (duplicate checks, Dr/Cr balance)</li>
+                        <li>Standard Oracle interface integration</li>
+                        <li>Excel upload feature for bulk imports</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Impact:</strong> Reduced month-end closing time by 40%</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🏥 Medical Diagnosis System</h3>
+                    <p class="tech-stack">FastAPI • Streamlit • Docker • Machine Learning</p>
+                    <p><strong>Graduation Project (A+):</strong> Full-stack medical diagnosis application with predictive models for multiple diseases.</p>
+                    <p style="margin-top: 15px;"><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>FastAPI backend with multiple ML models</li>
+                        <li>Streamlit frontend for real-time diagnosis</li>
+                        <li>Docker containerization for deployment</li>
+                        <li>REST API for model predictions</li>
+                        <li>Deployed on Heroku</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">View Code</a>
+                        <a href="https://github.com/Mohamed-Mossa" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Services I Offer</h2>
+            <div class="services-grid">
+                <div class="service-box">
+                    <h3>🔌 REST API Development</h3>
+                    <p>Build secure, scalable RESTful APIs with Spring Boot, complete with documentation and testing.</p>
+                </div>
+                
+                <div class="service-box">
+                    <h3>🔐 Authentication Systems</h3>
+                    <p>Implement JWT, OAuth2, OTP-based verification, and role-based access control.</p>
+                </div>
+                
+                <div class="service-box">
+                    <h3>🗄️ Database Integration</h3>
+                    <p>Connect your application to Oracle, MySQL, AS400, or any database system.</p>
+                </div>
+                
+                <div class="service-box">
+                    <h3>🤖 Web Scraping Solutions</h3>
+                    <p>Automate data extraction from websites with Selenium and scheduled tasks.</p>
+                </div>
+                
+                <div class="service-box">
+                    <h3>🏢 Enterprise Integration</h3>
+                    <p>Integrate with ERP systems (Oracle, SAP) and legacy systems (AS400).</p>
+                </div>
+                
+                <div class="service-box">
+                    <h3>🐛 Bug Fixes & Optimization</h3>
+                    <p>Debug and optimize existing Spring Boot applications for better performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <div class="contact-info">
+                <p style="margin-bottom: 30px;">I'm available for freelance projects and open to discussing your requirements.</p>
+                <a href="mailto:mohamedmousa418@gmail.com">📧 mohamedmousa418@gmail.com</a>
+                <a href="https://github.com/Mohamed-Mossa" target="_blank">💻 GitHub: @Mohamed-Mossa</a>
+                <a href="https://www.linkedin.com/in/mohamed-mousa-84010225a" target="_blank">💼 LinkedIn: Mohamed Mousa</a>
+                <a href="tel:+201201940048">📱 +20 120 194 0048</a>
+                <p style="margin-top: 30px;">📍 Based in Alexandria, Egypt | 🕐 Timezone: UTC+2 (Cairo)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mohamed Mousa. All rights reserved.</p>
+            <p style="margin-top: 10px;">Built with ❤️ using HTML, CSS, and JavaScript</p>
+        </div>
+    </footer>
+</body>
+</html>
